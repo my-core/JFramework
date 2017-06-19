@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- 声明项目描述符遵循哪一个POM模型版本 -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com</groupId>
+	<artifactId>jframework</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+
+	<!-- 定义一些常量，可以在整个POM中使用 -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- 定义依赖版本，便于维护 -->
+		<spring.version>4.3.8.RELEASE</spring.version>
+		<mybatis.version>3.3.1</mybatis.version>
+		<mysql.version>6.0.6</mysql.version>
+		<mybatis-spring.version>1.3.1</mybatis-spring.version>
+		<commons-logging.version>1.2</commons-logging.version>
+		<log4j.version>1.2.17</log4j.version>
+	</properties>
+
+	<!-- 模块（有时称作子项目） 被构建成项目的一部分 -->
+	<modules>
+		<module>com.jframework.web</module>
+		<module>com.jframework.common</module>
+		<module>com.jframework.dao</module>
+		<module>com.jframework.service</module>
+		<module>com.jframework.model</module>
+		<module>com.jframework.controller</module>
+    <module>com.jframework.datacontract</module>
+  </modules>
+
+	<!-- 构建项目的所有依赖,它们自动从项目定义的仓库中下载 (注：到http://mvnrepository.com搜索需要的包) -->
+	<dependencies>
+		<!-- springframework相关包 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- aspectjweaver (spring-aop依赖于aspectjweaver包) -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.9</version>
+		</dependency>
+		<!-- log4j相关包 -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons-logging.version}</version>
+		</dependency>
+		<!-- mybatis相关包 -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${mybatis-spring.version}</version>
+		</dependency>
+		<!-- mysql数据为驱动包 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+		<!-- javaweb的三个jsp解析包 javax.servlet-api 、javax.servlet.jstl、standard -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<!-- json序列化 -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160810</version>
+		</dependency>
+
+
+	</dependencies>
+	<build>
+	</build>
+</project>

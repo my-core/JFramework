@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE generatorConfiguration
+      PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+      "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 利用mybatis-generator自动生成代码 -->
+<generatorConfiguration>
+	<!-- 数据库驱动文件指定配置项 （已在pox文件plugin中指定，这里无需再指定） -->
+	<!-- <classPathEntry location="F:\java_test\springmybatis\src\main\java" 
+		/> -->
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<!-- 代码上面的注释规则 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- jdbc配置 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/freemvc?serverTimezone=UTC"
+			userId="root" password="123">
+		</jdbcConnection>
+		<!-- mybatis里专门用来处理NUMERIC和DECIMAL类型的策略 -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- 实体类生成配置 -->
+		<javaModelGenerator targetPackage="com.jframework.model"
+			targetProject="F:/java_test/jframework/com.jframework.model/src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- 生成sql语句的xml文件 -->
+		<sqlMapGenerator targetPackage="mapping"
+			targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- Mapper生成配置 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.jframework.dao"
+			targetProject="F:/java_test/jframework/com.jframework.dao/src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<!-- 数据表映射规则 -->
+		<table schema="test" tableName="T_User" domainObjectName="User"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="test" tableName="T_Permission" domainObjectName="Permission"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+		</table>
+		<table schema="test" tableName="T_RolePermission"
+			domainObjectName="RolePermission" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+		</table>
+		<table schema="test" tableName="T_Role" domainObjectName="Role"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<!-- 将数据库中的字段重命名为实体类的属性 column 数据库中字段名 property POJO属性名 javaType POJO类型 
+				jdbcType 数据库字段类型 -->
+			<!-- <columnOverride column="数据表字段" property="对象属性" /> -->
+			<!-- 按规则将数据库中的字段重命名为实体类的属性 -->
+			<!-- <columnRenamingRule searchString="^CUST_" replaceString="" /> -->
+			<!-- 代码上面的注释规则,子属性：property -->
+			<!-- <commentGenerator> <property name="suppressDate" value="true" /> 
+				</commentGenerator> -->
+			<!-- <ignoreColumn column="忽略字段"> -->
+		</table>
+	</context>
+</generatorConfiguration>

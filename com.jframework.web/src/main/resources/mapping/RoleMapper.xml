@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jframework.dao.RoleMapper">
+	<resultMap id="BaseResultMap" type="com.jframework.model.Role">
+		<result column="ID" jdbcType="CHAR" property="id" />
+		<result column="Name" jdbcType="VARCHAR" property="name" />
+		<result column="Remark" jdbcType="VARCHAR" property="remark" />
+	</resultMap>
+	<insert id="insert" parameterType="com.jframework.model.Role">
+		insert into T_Role (ID, Name, Remark
+		)
+		values (#{id,jdbcType=CHAR}, #{name,jdbcType=VARCHAR},
+		#{remark,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.jframework.model.Role">
+		insert into T_Role
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="name != null">
+				Name,
+			</if>
+			<if test="remark != null">
+				Remark,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=CHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+</mapper>

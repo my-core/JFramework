@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jframework.dao.UserMapper">
+	<resultMap id="BaseResultMap" type="com.jframework.model.User">
+		<result column="ID" jdbcType="CHAR" property="id" />
+		<result column="UserName" jdbcType="VARCHAR" property="username" />
+		<result column="Password" jdbcType="VARCHAR" property="password" />
+		<result column="Name" jdbcType="VARCHAR" property="name" />
+		<result column="RoleID" jdbcType="CHAR" property="roleid" />
+		<result column="CreateBy" jdbcType="CHAR" property="createby" />
+		<result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+	</resultMap>
+	<insert id="insert" parameterType="com.jframework.model.User">
+		insert into T_User (ID, UserName, Password,
+		Name, RoleID, CreateBy, CreateTime
+		)
+		values (#{id,jdbcType=CHAR}, #{username,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{name,jdbcType=VARCHAR}, #{roleid,jdbcType=CHAR}, #{createby,jdbcType=CHAR},
+		#{createtime,jdbcType=TIMESTAMP}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.jframework.model.User">
+		insert into T_User
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="username != null">
+				UserName,
+			</if>
+			<if test="password != null">
+				Password,
+			</if>
+			<if test="name != null">
+				Name,
+			</if>
+			<if test="roleid != null">
+				RoleID,
+			</if>
+			<if test="createby != null">
+				CreateBy,
+			</if>
+			<if test="createtime != null">
+				CreateTime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=CHAR},
+			</if>
+			<if test="username != null">
+				#{username,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="roleid != null">
+				#{roleid,jdbcType=CHAR},
+			</if>
+			<if test="createby != null">
+				#{createby,jdbcType=CHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 根据id查询得到一个user对象 -->
+	<select id="getUserList" resultType="com.jframework.model.User">
+		select * from t_user
+	</select>
+</mapper>

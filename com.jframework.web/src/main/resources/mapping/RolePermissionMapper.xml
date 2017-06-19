@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jframework.dao.RolePermissionMapper">
+  <resultMap id="BaseResultMap" type="com.jframework.model.RolePermission">
+    <result column="RoleID" jdbcType="CHAR" property="roleid" />
+    <result column="PermissionID" jdbcType="CHAR" property="permissionid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.jframework.model.RolePermission">
+    insert into T_RolePermission (RoleID, PermissionID)
+    values (#{roleid,jdbcType=CHAR}, #{permissionid,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jframework.model.RolePermission">
+    insert into T_RolePermission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleid != null">
+        RoleID,
+      </if>
+      <if test="permissionid != null">
+        PermissionID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleid != null">
+        #{roleid,jdbcType=CHAR},
+      </if>
+      <if test="permissionid != null">
+        #{permissionid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
