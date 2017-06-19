@@ -27,6 +27,12 @@
 			<artifactId>com.jframework.datacontract</artifactId>
 			<version>1.0</version>
 		</dependency>
+		<!--tk.mybatis.mapper -->
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper</artifactId>
+			<version>3.4.0</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

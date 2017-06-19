@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<!-- 声明项目描述符遵循哪一个POM模型版本 -->
 	<modelVersion>4.0.0</modelVersion>
 
@@ -28,8 +29,8 @@
 		<module>com.jframework.service</module>
 		<module>com.jframework.model</module>
 		<module>com.jframework.controller</module>
-    <module>com.jframework.datacontract</module>
-  </modules>
+		<module>com.jframework.datacontract</module>
+	</modules>
 
 	<!-- 构建项目的所有依赖,它们自动从项目定义的仓库中下载 (注：到http://mvnrepository.com搜索需要的包) -->
 	<dependencies>
@@ -101,6 +102,12 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>${mybatis-spring.version}</version>
+		</dependency>
+		<!--tk.mybatis.mapper -->
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper</artifactId>
+			<version>3.4.0</version>
 		</dependency>
 		<!-- mysql数据为驱动包 -->
 		<dependency>
